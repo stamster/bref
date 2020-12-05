@@ -52,7 +52,7 @@ final class LambdaRuntime
         !$apiUrl && exit('At the moment lambdas can only be executed in an Lambda environment');
 
         $this->apiUrl = $apiUrl;
-        $this->invoker = new Invoker;
+        $this->invoker = new Invoker();
     }
 
     public function __destruct()
