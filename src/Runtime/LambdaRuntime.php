@@ -47,11 +47,9 @@ final class LambdaRuntime
         return new self((string) getenv('AWS_LAMBDA_RUNTIME_API'));
     }
 
-    public function __construct(string $apiUrl)
+    public function __construct(string $apiUrl = null)
     {
-        if ($apiUrl === '') {
-            die('At the moment lambdas can only be executed in an Lambda environment');
-        }
+        !$apiUrl && exit('At the moment lambdas can only be executed in an Lambda environment');
 
         $this->apiUrl = $apiUrl;
         $this->invoker = new Invoker;
